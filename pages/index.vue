@@ -1,8 +1,8 @@
 <template>
-  <div
-    class="bg-cover bg-center border-primary-500 h-20rem w-full"
-    style="background-color: #252a34"
-  ></div>
+  <div class="flex flex-row flex-wrap">
+    <h1>My plans</h1>
+    <Image src="/logo.png" alt="logo" width="100" />
+  </div>
 </template>
 
 <script lang="ts" setup></script>

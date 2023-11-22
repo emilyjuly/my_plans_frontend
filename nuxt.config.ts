@@ -1,21 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/_colors.scss" as *;',
-        },
-      },
-    },
-  },
   devtools: { enabled: true },
-  modules: ["nuxt-primevue", "@pinia/nuxt"],
-  pinia: {
-    storesDirs: ["./stores/**", "./custom-folder/stores/**"],
+  modules: ["nuxt-primevue", "@pinia/nuxt", "@nuxt/image"],
+  primevue: {
+    components: {
+      include: "*",
+    },
+    directives: {
+      include: "*",
+    },
+    usePrimeVue: true,
   },
-  imports: {
-    dirs: ["stores"],
-  },
-  css: ["primeflex/primeflex.css"],
+  css: [
+    "@/assets/scss/main.scss",
+    "primevue/resources/themes/saga-blue/theme.css",
+    "primevue/resources/primevue.min.css",
+    "primeicons/primeicons.css",
+  ],
 });

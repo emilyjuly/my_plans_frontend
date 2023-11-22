@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.1.0",
     "nuxt": "^3.8.2",
     "nuxt-primevue": "^0.2.0",
     "vue": "^3.3.8",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "pinia": "^2.1.7",
-    "primeflex": "^3.3.1"
+    "primeflex": "^3.3.1",
+    "primeicons": "^6.0.1"
   }
 }
