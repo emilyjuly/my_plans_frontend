@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -20,6 +21,7 @@
     "@nuxt/image": "^1.1.0",
     "@playwright/test": "^1.40.0",
     "@types/node": "^20.9.4",
+    "husky": "^8.0.0",
     "nuxt": "^3.8.2",
     "nuxt-primevue": "^0.2.0",
     "playwright": "^1.40.0",
