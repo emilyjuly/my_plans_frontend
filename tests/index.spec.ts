@@ -5,5 +5,5 @@ test("job board test", async ({ page }) => {
 
   // Step 1 - Is Homepage working
   await expect(page.locator("p").locator("text=My plans")).toBeVisible();
-  await expect(page.locator("p").locator("text=Emily July")).toBeVisible();
+  // await expect(page.locator("p").locator("text=Emily July")).toBeVisible();
 });

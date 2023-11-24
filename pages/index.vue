@@ -33,7 +33,6 @@
           @click="toggle"
           aria-haspopup="true"
           aria-controls="overlay_menu"
-          v-tooltip.bottom="'Configurações'"
         />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true">
           <template #submenuheader="{ item }">
