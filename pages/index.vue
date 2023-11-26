@@ -9,8 +9,8 @@
       "
     >
       <div class="flex align-items-center">
-        <Image src="/logo.png" alt="logo" width="25" class="logo" />
-        <p class="text-sm" style="color: #08d9d6">My plans</p>
+        <Image src="/logo.png" alt="logo" width="35" class="logo" />
+        <p class="text-base font-bold" style="color: #08d9d6">My plans</p>
       </div>
       <div class="flex align-items-center" v-if="users.usersData.length > 0">
         <Avatar
@@ -58,9 +58,54 @@
           color: var(--base-color);
         "
       >
-        teste
+        <div
+          @click="navigationSelected = true"
+          class="flex p-2 justify-content-between cursor-pointer"
+          :style="{
+            backgroundColor: navigationSelected
+              ? 'var(--accent-color)'
+              : 'var(--secondary-color)',
+          }"
+        >
+          <div class="flex align-items-center">
+            <i
+              :style="{
+                color: navigationSelected
+                  ? 'var(--base-color)'
+                  : 'var(--accent-color)',
+              }"
+              class="pi pi-list pr-2 font-bold"
+            />
+            <p
+              class="text-base font-bold"
+              :style="{
+                color: navigationSelected
+                  ? 'var(--base-color)'
+                  : 'var(--accent-color)',
+              }"
+            >
+              Tarefas
+            </p>
+          </div>
+          <div>
+            <p
+              class="font-bold"
+              :style="{
+                color: navigationSelected
+                  ? 'var(--base-color)'
+                  : 'var(--accent-color)',
+              }"
+            >
+              2
+            </p>
+          </div>
+        </div>
       </nav>
-      <main style="background-color: var(--base-color)" class="w-9">teste</main>
+      <main style="background-color: var(--base-color)" class="w-9 p-3">
+        <div class="flex flex-column">
+          <p class="text-lg font-medium">Tarefas (2)</p>
+        </div>
+      </main>
     </div>
   </div>
 </template>
@@ -92,6 +137,8 @@ const items = ref([
 const toggle = (event) => {
   menu.value.toggle(event);
 };
+
+const navigationSelected = ref(false);
 </script>
 
 <style></style>
