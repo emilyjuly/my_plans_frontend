@@ -96,14 +96,50 @@
                   : 'var(--accent-color)',
               }"
             >
-              2
+              {{ tasks.length }}
             </p>
           </div>
         </div>
       </nav>
       <main style="background-color: var(--base-color)" class="w-9 p-3">
         <div class="flex flex-column">
-          <p class="text-lg font-medium">Tarefas (2)</p>
+          <p class="text-lg font-medium">Tarefas ({{ tasks.length }})</p>
+        </div>
+        <div class="flex justify-content-between">
+          <InputText
+            type="text"
+            v-model="task"
+            class="w-11 border-noround"
+            placeholder="Digite aqui a sua tarefa"
+            style="border: none"
+          />
+          <Button
+            icon="pi pi-plus"
+            style="background-color: #08d9d6; border: none"
+            class="border-noround"
+            @click="
+              tasksStore.addTask(task);
+              task = '';
+            "
+          />
+        </div>
+        <div
+          class="flex justify-content-between mt-3 p-3 w-11"
+          style="background-color: white"
+          v-for="task in tasksStore.tasks"
+          :key="task.id"
+        >
+          <div class="flex justify-content-between">
+            <Checkbox v-model="checked" :binary="true" class="mr-3" />
+            {{ task.name }}
+          </div>
+          <div class="flex">
+            <i
+              class="pi pi-flag-fill"
+              :style="{ color: task.priority_color }"
+              v-tooltip.bottom="{ value: `Prioridade ${task.priority}` }"
+            />
+          </div>
         </div>
       </main>
     </div>
@@ -111,10 +147,13 @@
 </template>
 
 <script setup>
+import { TasksStore } from "~/store/tasks_store";
 import { ref } from "vue";
 import { UsersStore } from "~/store/users_store";
 
 const users = UsersStore();
+const tasksStore = TasksStore();
+const tasks = await tasksStore.getTasks();
 await users.getUsersData();
 
 const menu = ref();
@@ -139,6 +178,8 @@ const toggle = (event) => {
 };
 
 const navigationSelected = ref(false);
-</script>
 
-<style></style>
+const task = ref(null);
+
+const checked = ref(false);
+</script>

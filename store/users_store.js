@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://my-plans-backend.onrender.com",
+  // baseURL: "https://my-plans-backend.onrender.com",
+  baseURL: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
-    // Outros cabeçalhos comuns, se necessário
   },
 });
 
